@@ -1,5 +1,3 @@
-# salesControl
-
 ## Diagrama de Classes - Sales Control
 ![](classDiagram.png)
 
