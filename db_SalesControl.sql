@@ -1,5 +1,7 @@
 CREATE DATABASE salesControl;
 
+USE salesControl;
+
 CREATE TABLE cliente(
     idCliente int NOT NULL,
     CPF varchar(11) NOT NULL,
@@ -10,8 +12,8 @@ CREATE TABLE cliente(
     UF char(2) NOT NULL,
     tel_ddd varchar(3) NOT NULL,
     tel varchar(9) NOT NULL,
-    limiteCredito money NOT NULL,
-    limiteDisponivel money NOT NULL,
+    limiteCredito money,
+    limiteDisponivel money,
     PRIMARY KEY (idCliente)
 );
 
@@ -25,8 +27,8 @@ CREATE TABLE vendedor(
     UF char(2) NOT NULL,
     tel_ddd varchar(3) NOT NULL,
     tel varchar(9) NOT NULL,
-    salarioBase smallmoney NOT NULL,
-    taxaComissao smallmoney NOT NULL,
+    salarioBase smallmoney,
+    taxaComissao smallmoney,
     PRIMARY KEY (idVendedor)
 );
 
@@ -34,7 +36,7 @@ CREATE TABLE produto(
     idProduto int NOT NULL,
     descricao text NOT NULL,
     qtDisponivel int NOT NULL,
-    precoUnit money NOT NULL,
+    precoUnit money,
     estoqueMinimo int NOT NULL,
     PRIMARY KEY (idProduto)
 );
