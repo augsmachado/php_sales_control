@@ -12,8 +12,8 @@ CREATE TABLE cliente(
     UF char(2) NOT NULL,
     tel_ddd varchar(3) NOT NULL,
     tel varchar(9) NOT NULL,
-    limiteCredito money,
-    limiteDisponivel money,
+    limiteCredito float(10, 2) NOT NULL,
+    limiteDisponivel float(10, 2) NOT NULL,
     PRIMARY KEY (idCliente)
 );
 
@@ -27,8 +27,8 @@ CREATE TABLE vendedor(
     UF char(2) NOT NULL,
     tel_ddd varchar(3) NOT NULL,
     tel varchar(9) NOT NULL,
-    salarioBase smallmoney,
-    taxaComissao smallmoney,
+    salarioBase float(10, 2) NOT NULL,
+    taxaComissao float(10, 2) NOT NULL,
     PRIMARY KEY (idVendedor)
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE produto(
     idProduto int NOT NULL,
     descricao text NOT NULL,
     qtDisponivel int NOT NULL,
-    precoUnit money,
+    precoUnit float(10, 2) NOT NULL,
     estoqueMinimo int NOT NULL,
     PRIMARY KEY (idProduto)
 );
