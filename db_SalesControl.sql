@@ -43,21 +43,17 @@ CREATE TABLE produto(
 
 CREATE TABLE pedido(
     idPedido int NOT NULL,
-    idCliente int NOT NULL,
-    idVendedor int NOT NULL,
     statusPedido varchar(15) NOT NULL,
     dtPedido date NOT NULL,
     dtPagto date NOT NULL,
-    FOREIGN KEY (idCliente) REFERENCES idCliente(cliente),
-    FOREIGN KEY (idVendedor) REFERENCES idVendedor(vendedor),
+    CONSTRAINT idCliente FOREIGN KEY (idCliente) REFERENCES cliente(idCliente),
+    CONSTRAINT idVendedor FOREIGN KEY (idVendedor) REFERENCES vendedor(idVendedor),
     PRIMARY KEY (idPedido, idCliente, idVendedor)
 );
 
 CREATE TABLE itemPedido(
-    idPedido int NOT NULL,
-    idProduto int NOT NULL,
     qtVendida int NOT NULL,
-    FOREIGN KEY (idPedido) REFERENCES idPedido(pedido),
-    FOREIGN KEY (idProduto) REFERENCES idProduto(produto),
+    CONSTRAINT idPedido FOREIGN KEY (idPedido) REFERENCES pedido(idPedido),
+    CONSTRAINT idProduto FOREIGN KEY (idProduto) REFERENCES produto(idProduto),
     PRIMARY KEY (idPedido, idProduto)
 );
