@@ -3,7 +3,7 @@ CREATE DATABASE salesControl;
 USE salesControl;
 
 CREATE TABLE cliente(
-    idCliente int NOT NULL,
+    idCliente int NOT NULL AUTO_INCREMENT,
     CPF varchar(11) NOT NULL,
     nome varchar(100) NOT NULL,
     endereco varchar(100) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE cliente(
 );
 
 CREATE TABLE vendedor(
-    idVendedor int NOT NULL,
+    idVendedor int NOT NULL AUTO_INCREMENT,
     CPF varchar(11) NOT NULL,
     nome varchar(100) NOT NULL,
     endereco varchar(100) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE vendedor(
 );
 
 CREATE TABLE produto(
-    idProduto int NOT NULL,
+    idProduto int NOT NULL AUTO_INCREMENT,
     descricao text NOT NULL,
     qtDisponivel int NOT NULL,
     precoUnit float(10, 2) NOT NULL,
@@ -42,18 +42,22 @@ CREATE TABLE produto(
 );
 
 CREATE TABLE pedido(
-    idPedido int NOT NULL,
+    idPedido int NOT NULL AUTO_INCREMENT,
+    idCliente int NOT NULL,
+    idVendedor int NOT NULL,
     statusPedido varchar(15) NOT NULL,
     dtPedido date NOT NULL,
     dtPagto date NOT NULL,
-    CONSTRAINT idCliente FOREIGN KEY (idCliente) REFERENCES cliente(idCliente),
-    CONSTRAINT idVendedor FOREIGN KEY (idVendedor) REFERENCES vendedor(idVendedor),
+	FOREIGN KEY (idCliente) REFERENCES cliente(idCliente),
+	FOREIGN KEY (idVendedor) REFERENCES vendedor(idVendedor),
     PRIMARY KEY (idPedido, idCliente, idVendedor)
 );
 
 CREATE TABLE itemPedido(
+    idPedido int NOT NULL,
+    idProduto int NOT NULL,
     qtVendida int NOT NULL,
-    CONSTRAINT idPedido FOREIGN KEY (idPedido) REFERENCES pedido(idPedido),
-    CONSTRAINT idProduto FOREIGN KEY (idProduto) REFERENCES produto(idProduto),
+    FOREIGN KEY (idPedido) REFERENCES pedido(idPedido),
+    FOREIGN KEY (idProduto) REFERENCES produto(idProduto),
     PRIMARY KEY (idPedido, idProduto)
 );
