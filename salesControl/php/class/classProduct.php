@@ -1,11 +1,11 @@
 <?php
 
     class Product {
-        $prod_idProduct;
-        $prod_description;
-        $prod_availableAmount;
-        $prod_unitPrice;
-        $prod_minimalStock;
+        public $prod_idProduct;
+        public $prod_description;
+        public $prod_availableAmount;
+        public $prod_unitPrice;
+        public $prod_minimalStock;
 
         public function get_idProduct() {
             return $prod_idProduct;

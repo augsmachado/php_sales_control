@@ -1,12 +1,12 @@
 <?php
 
     class Order {
-        $ord_idOrder;
-        $ord_idClient;
-        $ord_idSalesman;
-        $ord_status;
-        $ord_orderDate;
-        $ord_payDate;
+        public $ord_idOrder;
+        public $ord_idClient;
+        public $ord_idSalesman;
+        public $ord_status;
+        public $ord_orderDate;
+        public $ord_payDate;
 
         public function get_idOrder() {
             return $ord_idOrder;

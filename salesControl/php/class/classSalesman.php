@@ -1,17 +1,17 @@
 <?php
 
     class Salesman {
-        $sal_idSalesman;
-        $sal_cpf;
-        $sal_name;
-        $sal_address;
-        $sal_city;
-        $sal_cep;
-        $sal_uf;
-        $sal_ddd;
-        $sal_telNumber;
-        $sal_salary;
-        $sal_commission;
+        public $sal_idSalesman;
+        public $sal_cpf;
+        public $sal_name;
+        public $sal_address;
+        public $sal_city;
+        public $sal_cep;
+        public $sal_uf;
+        public $sal_ddd;
+        public $sal_telNumber;
+        public $sal_salary;
+        public $sal_commission;
 
         public function get_idSalesman() {
             return $sal_idSalesman;

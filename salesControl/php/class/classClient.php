@@ -1,17 +1,23 @@
+<?php include("../connection/connection.php");?>
+
 <?php
 
     class Cliente {
-        $cli_idClient;
-        $cli_cpf;
-        $cli_name;
-        $cli_address;
-        $cli_city;
-        $cli_cep;
-        $cli_uf;
-        $cli_ddd;
-        $cli_telNumber;
-        $cli_creditLimit;
-        $cli_availableLimit;
+        public $cli_idClient;
+        public $cli_cpf;
+        public $cli_name;
+        public $cli_address;
+        public $cli_city;
+        public $cli_cep;
+        public $cli_uf;
+        public $cli_ddd;
+        public $cli_telNumber;
+        public $cli_creditLimit;
+        public $cli_availableLimit;
+
+        public function saveQuey($cli_cpf, $cli_name, $cli_address, $cli_city, $cli_cep, $cli_uf, $cli_ddd, $cli_telNumber, $cli_creditLimit, $cli_availableLimit){
+            $save = mysqli_query($connection, "INSERT INTO CLIENTE('CPF', 'NOME', 'ENDERECO', 'CIDADE', 'CEP', 'UF', TEL_DDD', 'TEL', 'LIMITECREDITO', 'LIMITEDISPONIVEL') VALUES ('$this->cli_cpf', '$this->cli_name', '$this->cli_address', '$this->cli_city', '$this->cli_cep', '$this->cli_uf', '$this->cli_ddd', '$this->cli_creditLimit, '$this->cli_availableLimit')");
+        }
 
         public function get_idClient() {
             return $cli_idClient;
