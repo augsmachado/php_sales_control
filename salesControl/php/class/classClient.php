@@ -1,6 +1,7 @@
 <?php
 
     class Cliente {
+        $cli_idClient;
         $cli_cpf;
         $cli_name;
         $cli_address;
@@ -11,6 +12,14 @@
         $cli_telNumber;
         $cli_creditLimit;
         $cli_availableLimit;
+
+        public function get_idClient() {
+            return $cli_idClient;
+        }
+
+        public function set_idClient($cli_idClient) {
+            $this->cli_idClient = $cli_idClient;
+        }
 
         public function get_cpf() {
             return $cli_cpf;
