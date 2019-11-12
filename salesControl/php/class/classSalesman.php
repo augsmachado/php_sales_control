@@ -14,11 +14,11 @@
         $sal_commission;
 
         public function get_idSalesman() {
-            return $cli_idSalesman;
+            return $sal_idSalesman;
         }
 
-        public function set_idSalesman($cli_idSalesman) {
-            $this->cli_idSalesman = $cli_idSalesman;
+        public function set_idSalesman($sal_idSalesman) {
+            $this->sal_idSalesman = $sal_idSalesman;
         }
 
         public function get_cpf() {
