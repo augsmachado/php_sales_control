@@ -1,8 +1,8 @@
--- DROP DATABASE salesControl;
-
 CREATE DATABASE db_salesControl;
 
 USE db_salesControl;
+
+ALTER DATABASE `db_salesControl` CHARSET = UTF8 COLLATE = utf8_general_ci;
 
 CREATE TABLE tbl_client(
     cli_idClient int NOT NULL AUTO_INCREMENT,
