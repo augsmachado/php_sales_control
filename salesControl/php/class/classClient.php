@@ -15,14 +15,48 @@
         public $cli_availableLimit;
 
         public function saveClientQuery($connection, $cli_cpf, $cli_name, $cli_address, $cli_city, $cli_cep, $cli_uf, $cli_ddd, $cli_telNumber, $cli_creditLimit, $cli_availableLimit) {
-            $saveQuery = mysqli_query($connection, "INSERT INTO tbl_cent(cli_cpf, cli_name, cli_address, cli_city, cli_cep, cli_uf, cli_ddd, cli_tel, cli_creditLimit, cli_availableLimit) VALUES ('$cli_cpf', '$cli_name', '$cli_address', '$cli_city', '$cli_cep', '$cli_uf', '$cli_ddd', '$cli_telNumber', $cli_creditLimit, $cli_availableLimit)");
+            $saveQuery = mysqli_query($connection, "INSERT INTO tbl_client(cli_cpf, cli_name, cli_address, cli_city, cli_cep, cli_uf, cli_ddd, cli_tel, cli_creditLimit, cli_availableLimit) VALUES ('$cli_cpf', '$cli_name', '$cli_address', '$cli_city', '$cli_cep', '$cli_uf', '$cli_ddd', '$cli_telNumber', $cli_creditLimit, $cli_availableLimit)");
 			
 			if($saveQuery) echo("<br>Query saved successfully.");
 			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
         }
 
+        public function listClientQuery($connection) {
+            $listQuery = mysqli_query($connection, "SELECT * FROM tbl_client");
+
+            while($row = mysqli_fetch_array($listQuery)) {
+                $cli_idClient = $row["cli_idClient"];
+                $cli_cpf = $row["cli_cpf"];
+                $cli_name = $row["cli_name"];
+                $cli_address = $row["cli_address"];
+                $cli_city = $row["cli_city"];
+                $cli_cep = $row["cli_cep"];
+                $cli_uf = $row["cli_uf"];
+                $cli_ddd = $row["cli_ddd"];
+                $cli_telNumber = $row["cli_telNumber"];
+                $cli_creditLimit = $row["cli_creditLimit"];
+                $cli_availableLimit = $row["cli_availableLimit"];
+                
+                echo("<hr>
+                <br>CPF: $cli_cpf
+                <br>Nome: $cli_name
+                <br>Endereço: $cli_address
+                <br>Cidade: $cli_city
+                <br>CEP: $cli_cep
+                <br>UF: $cli_uf
+                <br>DDD: $cli_ddd
+                <br>Número: $cli_telNumber
+                <br>Credito Limite: $cli_creditLimit
+                <br>Limite Disponivel: $cli_availableLimit");
+            }
+        }
+
         public function get_idClient() {
             return $this->cli_idClient;
+        }
+
+        public function set_idClient($cli_idClient) {
+            $this->$cli_idClient = $cli_idClient;
         }
 
         public function get_cpf() {

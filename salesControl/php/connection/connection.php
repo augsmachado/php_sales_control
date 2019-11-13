@@ -3,7 +3,7 @@
     $host = "localhost";
     $user = "root";
     $password = "";
-    $dataBank = "localHost";
+    $dataBank = "db_salesControl";
 
     $connection = mysqli_connect($host, $user, $password, $dataBank);
 
