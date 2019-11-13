@@ -1,63 +1,65 @@
-CREATE DATABASE salesControl;
+-- DROP DATABASE salesControl;
 
-USE salesControl;
+CREATE DATABASE db_salesControl;
 
-CREATE TABLE cliente(
-    idCliente int NOT NULL AUTO_INCREMENT,
-    CPF varchar(11) NOT NULL,
-    nome varchar(100) NOT NULL,
-    endereco varchar(100) NOT NULL,
-    cidade varchar(60) NOT NULL,
-    CEP varchar(8) NOT NULL,
-    UF char(2) NOT NULL,
-    tel_ddd varchar(3) NOT NULL,
-    tel varchar(9) NOT NULL,
-    limiteCredito float(10, 2) NOT NULL,
-    limiteDisponivel float(10, 2) NOT NULL,
-    PRIMARY KEY (idCliente)
+USE db_salesControl;
+
+CREATE TABLE tbl_client(
+    cli_idClient int NOT NULL AUTO_INCREMENT,
+    cli_cpf varchar(11) NOT NULL,
+    cli_name varchar(100) NOT NULL,
+    cli_address varchar(100) NOT NULL,
+    cli_city varchar(60) NOT NULL,
+    cli_cep varchar(8) NOT NULL,
+    cli_uf char(2) NOT NULL,
+    cli_ddd varchar(3) NOT NULL,
+    cli_tel varchar(9) NOT NULL,
+    cli_creditLimit float(10, 2) NOT NULL,
+    cli_availableLimit float(10, 2) NOT NULL,
+    PRIMARY KEY (cli_idClient)
 );
 
-CREATE TABLE vendedor(
-    idVendedor int NOT NULL AUTO_INCREMENT,
-    CPF varchar(11) NOT NULL,
-    nome varchar(100) NOT NULL,
-    endereco varchar(100) NOT NULL,
-    cidade varchar(60) NOT NULL,
-    CEP varchar(8) NOT NULL,
-    UF char(2) NOT NULL,
-    tel_ddd varchar(3) NOT NULL,
-    tel varchar(9) NOT NULL,
-    salarioBase float(10, 2) NOT NULL,
-    taxaComissao float(10, 2) NOT NULL,
-    PRIMARY KEY (idVendedor)
+CREATE TABLE tbl_salesman(
+    sal_idSalesman int NOT NULL AUTO_INCREMENT,
+    sal_cpf varchar(11) NOT NULL,
+    sal_name varchar(100) NOT NULL,
+    sal_address varchar(100) NOT NULL,
+    sal_city varchar(60) NOT NULL,
+    sal_cep varchar(8) NOT NULL,
+    sal_uf char(2) NOT NULL,
+    sal_ddd varchar(3) NOT NULL,
+    sal_tel varchar(9) NOT NULL,
+    sal_salary float(10, 2) NOT NULL,
+    sal_comission float(10, 2) NOT NULL,
+    PRIMARY KEY (sal_idSalesman)
 );
 
-CREATE TABLE produto(
-    idProduto int NOT NULL AUTO_INCREMENT,
-    descricao text NOT NULL,
-    qtDisponivel int NOT NULL,
-    precoUnit float(10, 2) NOT NULL,
-    estoqueMinimo int NOT NULL,
-    PRIMARY KEY (idProduto)
+CREATE TABLE tbl_product(
+    prod_idProduct int NOT NULL AUTO_INCREMENT,
+    prod_description text NOT NULL,
+    prod_availableAmount int NOT NULL,
+    prod_unitPrice float(10, 2) NOT NULL,
+    prod_minimalStock int NOT NULL,
+    PRIMARY KEY (prod_idProduct)
 );
 
-CREATE TABLE pedido(
-    idPedido int NOT NULL AUTO_INCREMENT,
-    idCliente int NOT NULL,
-    idVendedor int NOT NULL,
-    statusPedido varchar(15) NOT NULL,
-    dtPedido date NOT NULL,
-    dtPagto date NOT NULL,
-	FOREIGN KEY (idCliente) REFERENCES cliente(idCliente),
-	FOREIGN KEY (idVendedor) REFERENCES vendedor(idVendedor),
-    PRIMARY KEY (idPedido, idCliente, idVendedor)
+CREATE TABLE tbl_order(
+    ord_idOrder int NOT NULL AUTO_INCREMENT,
+    ord_idClient int NOT NULL,
+    ord_idSalesman int NOT NULL,
+    ord_orderStatus varchar(15) NOT NULL,
+    ord_orderDate date NOT NULL,
+    ord_orderPay date NOT NULL,
+	FOREIGN KEY (ord_idClient) REFERENCES tbl_client(cli_idClient),
+	FOREIGN KEY (ord_idSalesman) REFERENCES tbl_salesman(sal_idSalesman),
+    PRIMARY KEY (ord_idOrder, ord_idClient, ord_idSalesman)
 );
 
-CREATE TABLE itemPedido(
-    idPedido int NOT NULL,
-    idProduto int NOT NULL,
-    qtVendida int NOT NULL,
-    FOREIGN KEY (idPedido) REFERENCES pedido(idPedido),
-    FOREIGN KEY (idProduto) REFERENCES produto(idProduto),
-    PRIMARY KEY (idPedido, idProduto)
+CREATE TABLE tbl_itemOrder(
+    item_idOrder int NOT NULL,
+    item_idProduct int NOT NULL,
+    item_soldAmount int NOT NULL,
+    FOREIGN KEY (item_idOrder) REFERENCES tbl_order(ord_idOrder),
+    FOREIGN KEY (item_idProduct) REFERENCES tbl_product(prod_idProduct),
+    PRIMARY KEY (item_idOrder, item_idProduct)
 );

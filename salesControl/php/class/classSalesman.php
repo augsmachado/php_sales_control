@@ -17,10 +17,6 @@
             return $sal_idSalesman;
         }
 
-        public function set_idSalesman($sal_idSalesman) {
-            $this->sal_idSalesman = $sal_idSalesman;
-        }
-
         public function get_cpf() {
             return $sal_cpf;
         }

@@ -2,7 +2,7 @@
 
 <?php
 
-    class Cliente {
+    class Client {
         public $cli_idClient;
         public $cli_cpf;
         public $cli_name;
@@ -15,16 +15,15 @@
         public $cli_creditLimit;
         public $cli_availableLimit;
 
-        public function saveQuey($cli_cpf, $cli_name, $cli_address, $cli_city, $cli_cep, $cli_uf, $cli_ddd, $cli_telNumber, $cli_creditLimit, $cli_availableLimit){
-            $save = mysqli_query($connection, "INSERT INTO CLIENTE('CPF', 'NOME', 'ENDERECO', 'CIDADE', 'CEP', 'UF', TEL_DDD', 'TEL', 'LIMITECREDITO', 'LIMITEDISPONIVEL') VALUES ('$this->cli_cpf', '$this->cli_name', '$this->cli_address', '$this->cli_city', '$this->cli_cep', '$this->cli_uf', '$this->cli_ddd', '$this->cli_creditLimit, '$this->cli_availableLimit')");
+        public function saveQueyClient($cli_cpf, $cli_name, $cli_address, $cli_city, $cli_cep, $cli_uf, $cli_ddd, $cli_telNumber, $cli_creditLimit, $cli_availableLimit) {
+            $saveQuery = mysqli_query($connection, "INSERT INTO TBL_CLIENT('CLI_CPF', 'CLI_NAME', 'CLI_ADDRESS', 'CLI_CITY', 'CLI_CEP', 'CLI_UF', 'CLI_DDD', 'CLI_TEL', 'CLI_CREDITLIMIT', 'CLI_AVAILABLELIMIT') VALUES ('$this->cli_cpf', '$this->cli_name', '$this->cli_address', '$this->cli_city', '$this->cli_cep', '$this->cli_uf', '$this->cli_ddd', '$this->cli_creditLimit, '$this->cli_availableLimit')");
+
+            if($saveQuery) echo("Query has been saved.");
+            else echo("Query hasn't been saved.");
         }
 
         public function get_idClient() {
             return $cli_idClient;
-        }
-
-        public function set_idClient($cli_idClient) {
-            $this->cli_idClient = $cli_idClient;
         }
 
         public function get_cpf() {

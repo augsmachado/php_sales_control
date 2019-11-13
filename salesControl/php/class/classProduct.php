@@ -11,10 +11,6 @@
             return $prod_idProduct;
         }
 
-        public function set_idProduct($prod_idProduct) {
-            $this->prod_idProduct = $prod_idProduct;
-        }
-
         public function get_description() {
             return $prod_description;
         }
