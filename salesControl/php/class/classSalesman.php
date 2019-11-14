@@ -9,12 +9,53 @@
         public $sal_cep;
         public $sal_uf;
         public $sal_ddd;
-        public $sal_telNumber;
+        public $sal_tel;
         public $sal_salary;
         public $sal_commission;
 
+        public function saveClientQuery($connection, $cli_cpf, $cli_name, $cli_address, $cli_city, $cli_cep, $cli_uf, $cli_ddd, $cli_tel, $cli_creditLimit, $cli_availableLimit) {
+            $saveQuery = mysqli_query($connection, "INSERT INTO tbl_client(cli_cpf, cli_name, cli_address, cli_city, cli_cep, cli_uf, cli_ddd, cli_tel, cli_creditLimit, cli_availableLimit) VALUES ('$cli_cpf', '$cli_name', '$cli_address', '$cli_city', '$cli_cep', '$cli_uf', '$cli_ddd', '$cli_tel', $cli_creditLimit, $cli_availableLimit)");
+			
+			if($saveQuery) echo("<br>Query saved successfully.");
+			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
+        }
+
+        public function listClientQuery($connection) {
+            $listQuery = mysqli_query($connection, "SELECT * FROM tbl_client");
+
+            while($row = mysqli_fetch_array($listQuery)) {
+                $sal_idClient = $row["cli_idClient"];
+                $sal_cpf = $row["cli_cpf"];
+                $sal_name = $row["cli_name"];
+                $sal_address = $row["cli_address"];
+                $sal_city = $row["cli_city"];
+                $sal_cep = $row["cli_cep"];
+                $sal_uf = $row["cli_uf"];
+                $sal_ddd = $row["cli_ddd"];
+                $sal_tel = $row["cli_tel"];
+                $sal_salary = $row["cli_creditLimit"];
+                $sal_comission = $row["cli_availableLimit"];
+                
+                echo("<hr>
+                <br>CPF: $cli_cpf
+                <br>Nome: $cli_name
+                <br>Endereço: $cli_address
+                <br>Cidade: $cli_city
+                <br>CEP: $cli_cep
+                <br>UF: $cli_uf
+                <br>DDD: $cli_ddd
+                <br>Número: $cli_tel
+                <br>Credito Limite: $cli_creditLimit
+                <br>Limite Disponivel: $cli_availableLimit");
+            }
+        }
+
         public function get_idSalesman() {
             return $sal_idSalesman;
+        }
+
+        public function set_idSalesman($sal_idSalesman) {
+            $this-$sal_idSalesman = $sal_idSalesman;
         }
 
         public function get_cpf() {
@@ -73,12 +114,12 @@
             $this-$sal_ddd = $sal_ddd;
         }
         
-        public function get_telNumber() {
-            return $sal_telNumber;
+        public function get_tel() {
+            return $sal_tel;
         }
 
-        public function set_telNumber($sal_telNumber) {
-            $this-$sal_telNumber = $sal_telNumber;
+        public function set_tel($sal_tel) {
+            $this-$sal_tel = $sal_tel;
         }
 
         public function get_salary() {

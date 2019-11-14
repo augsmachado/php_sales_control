@@ -1,4 +1,3 @@
-<?php include("connection\connection.php");?>
 <?php
 
     class Client {
@@ -10,12 +9,12 @@
         public $cli_cep;
         public $cli_uf;
         public $cli_ddd;
-        public $cli_telNumber;
+        public $cli_tel;
         public $cli_creditLimit;
         public $cli_availableLimit;
 
-        public function saveClientQuery($connection, $cli_cpf, $cli_name, $cli_address, $cli_city, $cli_cep, $cli_uf, $cli_ddd, $cli_telNumber, $cli_creditLimit, $cli_availableLimit) {
-            $saveQuery = mysqli_query($connection, "INSERT INTO tbl_client(cli_cpf, cli_name, cli_address, cli_city, cli_cep, cli_uf, cli_ddd, cli_tel, cli_creditLimit, cli_availableLimit) VALUES ('$cli_cpf', '$cli_name', '$cli_address', '$cli_city', '$cli_cep', '$cli_uf', '$cli_ddd', '$cli_telNumber', $cli_creditLimit, $cli_availableLimit)");
+        public function saveClientQuery($connection, $cli_cpf, $cli_name, $cli_address, $cli_city, $cli_cep, $cli_uf, $cli_ddd, $cli_tel, $cli_creditLimit, $cli_availableLimit) {
+            $saveQuery = mysqli_query($connection, "INSERT INTO tbl_client(cli_cpf, cli_name, cli_address, cli_city, cli_cep, cli_uf, cli_ddd, cli_tel, cli_creditLimit, cli_availableLimit) VALUES ('$cli_cpf', '$cli_name', '$cli_address', '$cli_city', '$cli_cep', '$cli_uf', '$cli_ddd', '$cli_tel', $cli_creditLimit, $cli_availableLimit)");
 			
 			if($saveQuery) echo("<br>Query saved successfully.");
 			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
@@ -23,6 +22,8 @@
 
         public function listClientQuery($connection) {
             $listQuery = mysqli_query($connection, "SELECT * FROM tbl_client");
+            
+            if($listQuery == false) echo("<br>Error ". mysqli_errno($connection) . ": ". mysqli_error($connection));
 
             while($row = mysqli_fetch_array($listQuery)) {
                 $cli_idClient = $row["cli_idClient"];
@@ -33,19 +34,19 @@
                 $cli_cep = $row["cli_cep"];
                 $cli_uf = $row["cli_uf"];
                 $cli_ddd = $row["cli_ddd"];
-                $cli_telNumber = $row["cli_telNumber"];
+                $cli_tel = $row["cli_tel"];
                 $cli_creditLimit = $row["cli_creditLimit"];
                 $cli_availableLimit = $row["cli_availableLimit"];
                 
                 echo("<hr>
-                <br>CPF: $cli_cpf
+                CPF: $cli_cpf
                 <br>Nome: $cli_name
                 <br>Endereço: $cli_address
                 <br>Cidade: $cli_city
                 <br>CEP: $cli_cep
                 <br>UF: $cli_uf
                 <br>DDD: $cli_ddd
-                <br>Número: $cli_telNumber
+                <br>Número: $cli_tel
                 <br>Credito Limite: $cli_creditLimit
                 <br>Limite Disponivel: $cli_availableLimit");
             }
@@ -115,12 +116,12 @@
             $this->cli_ddd = $cli_ddd;
         }
         
-        public function get_telNumber() {
-            return $this->cli_telNumber;
+        public function get_tel() {
+            return $this->cli_tel;
         }
 
-        public function set_telNumber($cli_telNumber) {
-            $this->cli_telNumber = $cli_telNumber;
+        public function set_tel($cli_tel) {
+            $this->cli_tel = $cli_tel;
         }
 
         public function get_creditLimit() {
