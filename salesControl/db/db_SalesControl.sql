@@ -1,8 +1,6 @@
 CREATE DATABASE db_salesControl;
 
-USE db_salesControl;
-
-ALTER DATABASE `db_salesControl` CHARSET = UTF8 COLLATE = utf8_general_ci;
+-- USE db_salesControl;
 
 CREATE TABLE tbl_client(
     cli_idClient int NOT NULL AUTO_INCREMENT,
@@ -30,7 +28,7 @@ CREATE TABLE tbl_salesman(
     sal_ddd varchar(3) NOT NULL,
     sal_tel varchar(9) NOT NULL,
     sal_salary float(10, 2) NOT NULL,
-    sal_comission float(10, 2) NOT NULL,
+    sal_commission float(10, 2) NOT NULL,
     PRIMARY KEY (sal_idSalesman)
 );
 
