@@ -10,8 +10,7 @@
             <!-- Content Product page -->
             <div class="container">
 
-            </div>
-            
+            </div>    
         </body>
     </html>
 HTML;
