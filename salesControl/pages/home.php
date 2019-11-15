@@ -19,7 +19,7 @@
                         <div class="card" style="width: 40px height: 40px;">
                             <img src="https://cdn.pixabay.com/photo/2017/02/23/13/05/profile-2092113_1280.png" class="card-img-top" alt="Client image">
                             <div class="card-body">
-                                <a href="client.html" class="btn btn-primary">Go Client</a>
+                                <a href="client.php" class="btn btn-primary">Go Client</a>
                             </div>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                         <div class="card" style="width: 40px height: 40px;">
                             <img src="https://cdn.pixabay.com/photo/2018/08/12/11/27/skincare-3600570_1280.png" class="card-img-top" alt="Product image">
                             <div class="card-body">
-                                <a href="product.html" class="btn btn-primary">Go Product</a>
+                                <a href="product.php" class="btn btn-primary">Go Product</a>
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         <div class="card" style="width: 40px height: 40px;">
                             <img src="https://cdn.pixabay.com/photo/2018/08/17/19/52/shopping-3613689_1280.png" class="card-img-top" alt="Order image">
                             <div class="card-body">
-                                <a href="order.html" class="btn btn-primary">Go Order</a>
+                                <a href="order.php" class="btn btn-primary">Go Order</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         <div class="card" style="width: 40px height: 40px;">
                             <img src="https://cdn.pixabay.com/photo/2016/08/02/18/27/statistic-1564428_1280.png" class="card-img-top mx-auto" alt="Sales Control image">
                             <div class="card-body">
-                                <a href="index.html" class="btn btn-primary">Go Sales Control</a>
+                                <a href="index.php" class="btn btn-primary">Go Sales Control</a>
                             </div>
                         </div>
                     </div>
@@ -53,4 +53,5 @@
     </html>
 HTML;
 ?>
+
 <?php { include('footer.php'); } ?>

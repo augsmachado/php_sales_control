@@ -16,7 +16,7 @@
 
             <footer class=" border-top footer text-muted">
                 <div class="container">
-                    <a class="nav-link" href="license.html">&copy; 2019 - Sales Control License</a>
+                    <a class="nav-link" href="license.php">&copy; 2019 - Sales Control License</a>
                 </div>
             </footer>
         </html>
