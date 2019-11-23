@@ -17,7 +17,7 @@
         public function saveSalesmanQuery($connection, $sal_cpf, $sal_name, $sal_address, $sal_city, $sal_cep, $sal_uf, $sal_ddd, $sal_tel, $sal_salary, $sal_commission) {
             $saveQuery = mysqli_query($connection, "INSERT INTO tbl_salesman (sal_cpf, sal_name, sal_address, sal_city, sal_cep, sal_uf, sal_ddd, sal_tel, sal_salary, sal_commission) VALUES ('$sal_cpf', '$sal_name', '$sal_address', '$sal_city', '$sal_cep', '$sal_uf', '$sal_ddd', '$sal_tel', $sal_salary, $sal_commission)");
 			
-			if($saveQuery) echo("<br>Query saved successfully.");
+			if($saveQuery) echo("<br>Query has been saved successfully.");
 			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
         }
 
@@ -25,7 +25,7 @@
             $listQuery = mysqli_query($connection, "SELECT * FROM tbl_salesman");
 
             if($listQuery == false) echo("<br>Error ". mysqli_errno($connection) . ": ". mysqli_error($connection));
-
+            
             while($row = mysqli_fetch_array($listQuery)) {
                 $sal_idSalesman = $row["sal_idSalesman"];
                 $sal_cpf = $row["sal_cpf"];
@@ -38,19 +38,21 @@
                 $sal_tel = $row["sal_tel"];
                 $sal_salary = $row["sal_salary"];
                 $sal_commission = $row["sal_commission"];
-                
-                echo("<hr>
-                CPF: $sal_cpf
-                <br>Nome: $sal_name
-                <br>Endereço: $sal_address
-                <br>Cidade: $sal_city
-                <br>CEP: $sal_cep
-                <br>UF: $sal_uf
-                <br>DDD: $sal_ddd
-                <br>Número: $sal_tel
-                <br>Credito Limite: $sal_salary
-                <br>Limite Disponivel: $sal_commission");
             }
+        }
+
+        public function editSalesmanQuery($connection, $sal_idSalesman, $sal_cpf, $sal_name, $sal_address, $sal_city, $sal_cep, $sal_uf, $sal_ddd, $sal_tel, $sal_salary, $sal_commission) {
+            $editQuery = mysqli_query($connection, "UPDATE tbl_salesman SET `sal_cpf` = '$sal_cpf', `sal_name` = '$sal_name', `sal_address` = '$sal_address', `sal_city` = '$sal_city', `sal_cep` = '$sal_cep', `sal_uf` = '$sal_uf', `sal_ddd` = '$sal_ddd', `sal_tel` = '$sal_tel', `sal_salary` = $sal_salary, `sal_commission` = $sal_commission WHERE sal_idSalesman = $sal_idSalesman");
+
+            if($editQuery) echo("<br>Query has been up-to-date successfully.");
+			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
+        }
+
+        public function deleteSalesmanQuery($connection, $sal_idSalesman) {
+            $deleteQuery = mysqli_query($connection, "DELETE FROM `tbl_salesman` WHERE sal_idSalesman = $sal_idSalesman");
+
+            if($deleteQuery) echo("<br>Query has been deleted successfully.");
+			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
         }
 
         public function get_idSalesman(){
@@ -137,5 +139,4 @@
             $this->sal_commission = $sal_commission;
         }
     }
-
 ?>
