@@ -8,7 +8,7 @@
             <header>
 
                 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
-                    <div class="container">
+                    <div class="container-fluid">
 
                         <!-- Favicon: image and text -->
                         <a class="navbar-brand" href="home.php">
@@ -37,13 +37,6 @@
                                 </li>
                             </ul>
                         </div>
-
-                        <!-- Search bar 
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-sucess btn-primary my-2 my-sm-0 " type="submit"> Search </button>
-                        </form>
-                        -->
                     </div>
                 </nav>
             </header>
