@@ -46,11 +46,11 @@ CREATE TABLE tbl_order(
     ord_idClient int NOT NULL,
     ord_idSalesman int NOT NULL,
     ord_orderStatus varchar(15) NOT NULL,
-    ord_orderDate varchar(11) NOT NULL,
+    ord_orderDate timestamp default current_timestamp() NOT NULL,
     ord_payDate varchar(11) NOT NULL,
 	FOREIGN KEY (ord_idClient) REFERENCES tbl_client(cli_idClient),
 	FOREIGN KEY (ord_idSalesman) REFERENCES tbl_salesman(sal_idSalesman),
-    PRIMARY KEY (ord_idOrder, ord_idClient, ord_idSalesman)
+    PRIMARY KEY (ord_idOrder, ord_idClient, ord_idSalesman, ord_orderDate)
 );
 
 CREATE TABLE tbl_itemOrder(
