@@ -1,0 +1,8 @@
+<?php
+    {
+
+        include('home.php');
+ 
+    }
+
+?>
