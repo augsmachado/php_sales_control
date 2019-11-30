@@ -45,7 +45,7 @@
                         <div class="row">
                             <form class="form-inline">
                                 <div class="form-group col-sm-5">
-                                    <input type="search" class="form-control" id="customerNumberInput" placeholder="Customer code: 0000">
+                                    <input type="search" class="form-control" id="customerCodeInput" placeholder="Customer code: 0000">
                                 </div>
 
                                 <div class="form-group-inline col-sm-2">
@@ -53,7 +53,7 @@
                                 </div>
                                                         
                                 <div class="form-group col-sm-5">
-                                    <input type="text" class="form-control" id="requestNameInput" placeholder="Customer name" disabled>
+                                    <input type="text" class="form-control" id="customerNameRequest" placeholder="Customer name" disabled>
                                 </div>
                             </form>
                         </div>
