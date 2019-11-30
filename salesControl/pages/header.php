@@ -24,16 +24,16 @@
                         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                             <ul class="navbar-nav flex-grow-1">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="home.php"> Home</a>
+                                    <a class="nav-link" href="home.php">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="client.php"> Client </a>
+                                    <a class="nav-link" href="customer.php">Customer</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="product.php"> Product </a>
+                                    <a class="nav-link" href="product.php">Product</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="order.php"> Order </a>
+                                    <a class="nav-link" href="order.php">Order</a>
                                 </li>
                             </ul>
                         </div>

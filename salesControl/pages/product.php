@@ -3,6 +3,22 @@
 <?php
     echo<<<HTML
     <html>
+
+        <script>
+            function userChoice(){
+                const option = confirm("Do you really want to delete all records?");
+                if ( option === true ) {
+                    $.ajax({
+                        type: "POST",
+                        url: '..\class\classProduct.php',
+                        data:{action:'deleteProductQuery'},
+                        success:function(html) {
+                            alert(html);
+                        }
+                    });
+                }
+            }
+        </script>
         <body>
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -11,28 +27,22 @@
             <div class="container-fluid">
                 <form class="form-inline my-2 my-lg-0">
                     <div class="form-group col-sm-4">
-                        <input class="form-control mr-sm-2" type="search" placeholder="CPF Client" aria-label="Search">
-                        <button class="btn btn-outline-sucess btn-primary my-2 my-sm-0 " type="submit"> Search </button>
+                        <input class="form-control mr-sm-2" type="search" placeholder="Product Code" aria-label="Search">
+                        <button class="btn btn-outline-sucess btn-primary my-2 my-sm-0 " type="submit">Search</button>
                     </div>
                     
+                    <!-- Todos eles herdam o CPF pesquisado paara realizar uma acao -->
                     <div class="form-group col-sm-1">
-                        <input class="btn btn-primary" type="button" value="Input">
+                        <button class="btn btn-primary " type="button" onclick="javascript:window.location.href='productRegister.php'">New</button>
                     </div>
                     <div class="form-group col-sm-1">
-                        <input class="btn btn-primary" type="submit" value="Submit">
+                        <button class="btn btn-primary " type="button" onclick="javascript:window.location.href='productRegister.php'">Edit</button>
                     </div>
                     <div class="form-group col-sm-1">
-                        <input class="btn btn-primary" type="reset" value="Reset">
+                        <button class="btn btn-primary " type="button" onclick="userChoice()">Delete</button>
                     </div>
                 </form>
             </div>
-                
-            
-
-            <!-- Content Product page -->
-            <div class="container-fluid">
-                
-            </div>    
         </body>
     </html>
 HTML;

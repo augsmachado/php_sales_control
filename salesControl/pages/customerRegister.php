@@ -81,10 +81,10 @@ HTML;
                 <!--Add and remove products-->
                 <div class="row">
                     <form class="form-inline" >
-                        <div class="form-group col-sm-5">
-                            <button class="btn btn-danger" type="reset" value="clear" onclick="javascript:window.location.href='customer.php'">Cancel</button>
+                        <div class="form-group col-sm-6">
+                            <button class="btn btn-danger btn-lg" type="reset" value="clear" onclick="javascript:window.location.href='customer.php'">Cancel</button>
                         </div>
-                        <div class="form-group col-sm-5">
+                        <div class="form-group col-sm-6">
                             <script>
                                 function saveCustomer() {
                                     $.ajax({
@@ -98,7 +98,7 @@ HTML;
                                     });
                                 }
                             </script>
-                            <button class="btn btn-success" type="submit" onclick="saveCustomer()">Save</button>
+                            <button class="btn btn-success btn-lg" type="submit" onclick="saveCustomer()">Save</button>
                         </div>
                     </form>
                 </div>
