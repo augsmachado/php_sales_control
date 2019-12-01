@@ -68,7 +68,7 @@ HTML;
                     <th>Product code</th>
                     <th>Description</th>
                     <th>Available amount</th>
-                    <th>Unit price</th>
+                    <th>Unitary price</th>
                     <th>Minimal stock</th>
                 </tr>";
 

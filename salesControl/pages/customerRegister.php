@@ -1,3 +1,5 @@
+<?php include("..\php\connection\connection.php");?>
+
 <?php { include('header.php'); } ?>
 
 <?php
@@ -19,7 +21,7 @@
                             <form class="form-inline">
                                 <!-- If the record exists, returns the Customer code here -->
                                 <div class="form-group col-sm-4">
-                                    <input type="text" class="form-control" id="customerCodeRequest" placeholder="Customer code" disabled>
+                                    <input type="text" class="form-control" id="customerCodeRequest" placeholder="Customer code">
                                 </div>
 
                                 <!-- Data Customer -->
@@ -78,7 +80,7 @@ HTML;
     <html>
         <body>
             <div class="container">
-                <!--Add and remove products-->
+                <!--Add and remove customers-->
                 <div class="row">
                     <form class="form-inline" >
                         <div class="form-group col-sm-6">
@@ -89,7 +91,7 @@ HTML;
                                 function saveCustomer() {
                                     $.ajax({
                                         type: "POST",
-                                        url: '..\class\classCustomer.php',
+                                        url: '..\php\class\classCustomer.php',
                                         data:{action:'saveClientQuery'},
                                         success:function(html) {
                                             alert(html);
