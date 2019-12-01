@@ -1,4 +1,4 @@
-<?php include("connection\connection.php");?>
+<?php include("..\php\connection\connection.php");?>
 <?php
 
     class Order {
@@ -28,13 +28,6 @@
                 $ord_orderStatus = $row["ord_orderStatus"];
                 $ord_orderDate = $row["ord_orderDate"];
                 $ord_payDate = $row["ord_payDate"];
-
-                echo("<hr>ID Order: $ord_idOrder<br>
-                ID Client: $ord_idClient<br>
-                ID Salesman: $ord_idSalesman<br>
-                Order Status: $ord_orderStatus<br>
-                Order Date: $ord_orderDate<br>
-                Pay Date: $ord_payDate");
             }
         }
 

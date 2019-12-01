@@ -1,4 +1,4 @@
-<?php include("connection\connection.php");?>
+<?php include("..\php\connection\connection.php");?>
 <?php
 
     class Salesman {

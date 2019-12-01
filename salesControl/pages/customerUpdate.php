@@ -11,13 +11,16 @@
             <div class="container">
                 
                 <!-- Form to request's informations -->
-                <form class="form-group" id="individualRegister" method="post" action="customerActionSave.php">
+                <form class="form-group" id="individualRegister" method="post" action="customerActionUpdate.php">
                     <fieldset class="border p-2">
                         <legend class="w-auto">Customer Register</legend>
                         
                         <div class="row">
                             <form class="form-inline">
-                                
+                                <div class="form-group col-sm-4">
+                                    <input type="text" class="form-control" id="customerCodeRequest" name="customerCodeRequest" placeholder="Customer ID">
+                                </div>
+
                                 <!-- Data Customer -->
                                 <div class="form-group col-sm-4">
                                     <input type="text" class="form-control" id="customerNameInput" name="customerNameInput" placeholder="Customer's full name">
@@ -91,7 +94,7 @@
                             </form>
                         </div>
                         <div class="form-group col-sm-6">
-                            <button class="btn btn-success btn-lg" type="submit">Save</button>
+                            <button class="btn btn-success btn-lg" type="submit">Update</button>
                             <button class="btn btn-danger btn-lg" type="reset" value="clear" onclick="javascript:window.location.href='customer.php'">Cancel</button>
                         </div>
                     </fieldset>

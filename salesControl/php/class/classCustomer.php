@@ -1,4 +1,4 @@
-<?php include("connection\connection.php");?>
+<?php include("..\php\connection\connection.php");?>
 <?php
 
     class Client {
@@ -18,11 +18,13 @@
             $saveQuery = mysqli_query($connection, "INSERT INTO tbl_client (cli_cpf, cli_name, cli_address, cli_city, cli_cep, cli_uf, cli_ddd, cli_tel, cli_creditLimit, cli_availableLimit) VALUES ('$cli_cpf', '$cli_name', '$cli_address', '$cli_city', '$cli_cep', '$cli_uf', '$cli_ddd', '$cli_tel', $cli_creditLimit, $cli_availableLimit)");
 			
 			if($saveQuery) echo("<br>Query saved successfully.");
-			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
+            else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
         }
 
-        public function listClientQuery($connection) {
-            $listQuery = mysqli_query($connection, "SELECT * FROM tbl_client");
+        public function listClientQuery($connection, $cli_cpf) {
+            $listQuery = mysqli_query($connection, "SELECT * FROM tbl_client WHERE cli_cpf = '$cli_cpf'");
+
+            if(!$listQuery) echo("<br>Error ". mysqli_errno($connection) . ": ". mysqli_error($connection));
 
             while($row = mysqli_fetch_array($listQuery)) {
                 $cli_idClient = $row["cli_idClient"];
@@ -36,21 +38,21 @@
                 $cli_tel = $row["cli_tel"];
                 $cli_creditLimit = $row["cli_creditLimit"];
                 $cli_availableLimit = $row["cli_availableLimit"];
+
+                echo("ID: $cli_idClient --- Name: $cli_name<br>
+                CPF: $cli_cpf<br>
+                Telephone: ($cli_ddd) $cli_tel<br>
+                CEP: $cli_cep<br>
+                Address: $cli_address --- City: $cli_city --- AC: $cli_uf<br>
+                Credit Limit: $cli_creditLimit --- Credit Available: $cli_availableLimit<br><br>");
             }
         }
 
-        public function editClientQuery($connection, $cli_cpf, $cli_name, $cli_address, $cli_city, $cli_cep, $cli_uf, $cli_ddd, $cli_tel, $cli_creditLimit, $cli_availableLimit) {
-            $editQuery = mysqli_query($connection, "UPDATE tbl_Client SET `cli_cpf` = '$cli_cpf', `cli_name` = '$cli_name', `cli_address` = '$cli_address', `cli_city` = '$cli_city', `cli_cep` = '$cli_cep', `cli_uf` = '$cli_uf', `cli_ddd` = '$cli_ddd', `cli_tel` = '$cli_tel', `cli_creditLimit` = $cli_creditLimit, `cli_availableLimit` = $cli_availableLimit WHERE cli_cpf = '$cli_cpf'");
+        public function editClientQuery($connection, $cli_idClient, $cli_cpf, $cli_name, $cli_address, $cli_city, $cli_cep, $cli_uf, $cli_ddd, $cli_tel, $cli_creditLimit, $cli_availableLimit) {
+            $editQuery = mysqli_query($connection, "UPDATE tbl_client SET `cli_cpf` = '$cli_cpf', `cli_name` = '$cli_name', `cli_address` = '$cli_address', `cli_city` = '$cli_city', `cli_cep` = '$cli_cep', `cli_uf` = '$cli_uf', `cli_ddd` = '$cli_ddd', `cli_tel` = '$cli_tel', `cli_creditLimit` = $cli_creditLimit, `cli_availableLimit` = $cli_availableLimit WHERE cli_idClient = $cli_idClient");
 
             if($editQuery) echo("<br>Query has been up-to-date successfully.");
             else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
-        }
-
-        public function deleteClientQuery($connection, $cli_idClient) {
-            $deleteQuery = mysqli_query($connection, "DELETE FROM `tbl_client` WHERE cli_idClient = $cli_idClient");
-
-            if($deleteQuery) echo("<br>Query has been deleted successfully.");
-			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
         }
 
         public function get_idClient() {

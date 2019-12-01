@@ -7,7 +7,5 @@
 
     $connection = mysqli_connect($host, $user, $password, $dataBank);
 
-    if($connection) echo("");
-    else echo("Fail to connect with database");
-
+    if(!$connection) echo("Could not connect to databank.<br>");
 ?>

@@ -11,7 +11,7 @@
             <div class="container">
                 
                 <!-- Form to request's informations -->
-                <form class="form-group" id="individualRegister" method="post" action="productActionSave.php">
+                <form class="form-group" id="individualRegister" method="post" action="productActionUpdate.php">
                     <fieldset class="border p-2">
                         <legend class="w-auto">Product Register</legend>
                         
@@ -41,7 +41,7 @@
                             </form>
                         </div>
                         <div class="form-group col-sm-6">
-                            <button class="btn btn-success btn-lg" type="submit">Save</button>
+                            <button class="btn btn-success btn-lg" type="submit">Update</button>
                             <button class="btn btn-danger btn-lg" type="reset" value="clear" onclick="javascript:window.location.href='customer.php'">Cancel</button>
                         </div>
                     </fieldset>

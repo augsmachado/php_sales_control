@@ -1,5 +1,3 @@
-<?php include("..\php\connection\connection.php");?>
-
 <?php { include('header.php'); } ?>
 
 <?php

@@ -1,4 +1,4 @@
-<?php include("connection\connection.php");?>
+<?php include("..\php\connection\connection.php");?>
 <?php
 
     class Product {
@@ -8,15 +8,15 @@
         public $prod_unitPrice;
         public $prod_minimalStock;
 
-        public function saveProductQuery($connection, $prod_description, $prod_availableAmount, $prod_unitPrice, $prod_minimalStock) {
+        public function saveProductQuery($connection, $prod_idProduct, $prod_description, $prod_availableAmount, $prod_unitPrice, $prod_minimalStock) {
             $saveQuery = mysqli_query($connection, "INSERT INTO tbl_product (prod_description, prod_availableAmount, prod_unitPrice, prod_minimalStock) VALUES ('$prod_description', $prod_availableAmount, $prod_unitPrice, $prod_minimalStock)");
 			
 			if($saveQuery) echo("<br>Query has been saved successfully.");
 			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
         }
 
-        public function listProductQuery($connection) {
-            $listQuery = mysqli_query($connection, "SELECT * FROM tbl_product");
+        public function listProductQuery($connection, $prod_idProduct) {
+            $listQuery = mysqli_query($connection, "SELECT * FROM tbl_product WHERE prod_idProduct = $prod_idProduct");
 
             if($listQuery == false) echo("<br>Error ". mysqli_errno($connection) . ": ". mysqli_error($connection));
             
@@ -26,7 +26,12 @@
                 $prod_availableAmount = $row["prod_availableAmount"];
                 $prod_unitPrice = $row["prod_unitPrice"];
                 $prod_minimalStock = $row["prod_minimalStock"];
-            }
+
+                echo("ID: $prod_idProduct<br>
+                Description: $prod_description<br>
+                Available Amount: $prod_availableAmount --- Unit Price: $this->prod_unitPrice<br>
+                Minimal Stock: $prod_minimalStock");
+            }   
         }
 
         public function editProductQuery($connection, $prod_idProduct, $prod_description, $prod_availableAmount, $prod_unitPrice, $prod_minimalStock) {
@@ -35,16 +40,13 @@
             if($editQuery) echo("<br>Query has been up-to-date successfully.");
 			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
         }
-
-        public function deleteProductQuery($connection, $prod_idProduct) {
-            $deleteQuery = mysqli_query($connection, "DELETE FROM `tbl_product` WHERE prod_idProduct = $prod_idProduct");
-
-            if($deleteQuery) echo("<br>Query has been deleted successfully.");
-			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
-        }
         
         public function get_idProduct() {
             return $this->prod_idProduct;
+        }
+
+        public function set_idProduct($prod_idProduct) {
+            $this->prod_idProduct = $prod_idProduct;
         }
 
         public function get_description() {
