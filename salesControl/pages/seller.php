@@ -30,10 +30,10 @@
                                 <div class="form-group col-sm-3">
                                     <input type="text" class="form-control"  id="sellerCepInput" name="sellerCepInput" placeholder="CEP: 12345-123">
                                 </div>
-                                <div class="form-group col-sm-5">
+                                <div class="form-group col-sm-6">
                                     <input type="text" class="form-control"  id="sellerAdressInput" name="sellerAdressInput" placeholder="Adress: 0000 Saint John St.">
                                 </div>
-                                <div class="form-group col-sm-2">
+                                <div class="form-group col-sm-3">
                                     <input type="text" class="form-control"  id="sellerCityInput" name="ssllerCityInput" placeholder="City">
                                 </div>
                                 <div class="form-group col-sm-2">
