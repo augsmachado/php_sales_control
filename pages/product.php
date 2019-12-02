@@ -9,17 +9,18 @@
             
             <!-- Action Bar -->
             <div class="container-fluid">
-                <form class="form-inline my-2 my-lg-0" method="post" action="productActionList.php">
+                <form class="form-inline my-2 my-lg-0" method="post" action="productAction.php">
                     <div class="form-group col-sm-4">
                         <input class="form-control mr-sm-2" id="productCodeRequest" name="productCodeRequest" type="search" placeholder="Product Code" aria-label="Search">
-                        <button class="btn btn-outline-sucess btn-primary my-2 my-sm-0 " type="submit">Search</button>
+                        <button class="btn btn-outline-sucess btn-primary my-2 my-sm-0 " id="buttonProductSearch" name="buttonCustomer" value="search" type="submit">Search</button>
                     </div>
-
-                    <!-- Everyone inherits the searched CPF to perform an action -->
-                    <div class="form-group col-sm-2">
+                </form>
+                <form class="form-inline my-2 my-lg-2">
+                    <!-- Todos eles herdam o CPF pesquisado para realizar uma acao -->
+                    <div class="form-group col-sm-1">
                         <button class="btn btn-primary " type="button" onclick="javascript:window.location.href='productRegister.php'">New</button>
                     </div>
-                    <div class="form-group col-sm-2">
+                    <div class="form-group col-sm-1">
                         <button class="btn btn-primary " type="button" onclick="javascript:window.location.href='productRegister.php'">Edit</button>
                     </div>
                 </form>

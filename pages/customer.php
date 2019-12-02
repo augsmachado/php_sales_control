@@ -9,20 +9,19 @@
             
             <!-- Action Bar -->
             <div class="container-fluid">
-                <form class="form-inline my-2 my-lg-0" method="get" action="customerActionList.php">
-                    
-                    <!-- Search customer using Customer Code -->
+                <form class="form-inline my-2 my-lg-0" method="post" action="customerAction.php">
                     <div class="form-group col-sm-4">
                         <input class="form-control mr-sm-2" id="customerCpfInput" name="customerCpfInput" type="search" placeholder="CPF Customer" aria-label="Search">
-                        <button class="btn btn-outline-sucess btn-primary my-2 my-sm-0 " type="submit">Search</button>
+                        <button class="btn btn-outline-sucess btn-primary my-2 my-sm-0" id="buttonCustomerSearch" name="buttonCustomer" value="search" type="submit">Search</button>
                     </div>
-
-                    <!-- Everyone inherits the searched CPF to perform an action -->
-                    <div class="form-group col-sm-2">
+                </form>
+                <form class="form-inline my-2 my-lg-2">
+                    <!-- Todos eles herdam o CPF pesquisado paara realizar uma acao -->
+                    <div class="form-group col-sm-1">
                         <button class="btn btn-primary " type="button" onclick="javascript:window.location.href='customerRegister.php'">New</button>
                     </div>
-                    <div class="form-group col-sm-2">
-                        <button class="btn btn-primary " type="button" onclick="javascript:window.location.href='customerSearch.php'">Edit</button>
+                    <div class="form-group col-sm-1">
+                        <button class="btn btn-primary " type="button" onclick="javascript:window.location.href='customerRegister.php'">Edit</button>
                     </div>
                 </form>
             </div>
