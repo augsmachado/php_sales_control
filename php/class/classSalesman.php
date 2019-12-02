@@ -38,25 +38,29 @@
                 $sal_tel = $row["sal_tel"];
                 $sal_salary = $row["sal_salary"];
                 $sal_commission = $row["sal_commission"];
+
+                echo("ID: $sal_idSalesman --- Name: $sal_name<br>
+                CPF: $sal_cpf<br>
+                Telephone: ($sal_ddd) $sal_tel<br>
+                CEP: $sal_cep<br>
+                Address: $sal_address --- City: $sal_city --- AC: $sal_uf<br>
+                Salary: $sal_salary --- Commission: $sal_commission<br><br>");
             }
         }
 
-        public function editSalesmanQuery($connection, $sal_idSalesman, $sal_cpf, $sal_name, $sal_address, $sal_city, $sal_cep, $sal_uf, $sal_ddd, $sal_tel, $sal_salary, $sal_commission) {
-            $editQuery = mysqli_query($connection, "UPDATE tbl_salesman SET `sal_cpf` = '$sal_cpf', `sal_name` = '$sal_name', `sal_address` = '$sal_address', `sal_city` = '$sal_city', `sal_cep` = '$sal_cep', `sal_uf` = '$sal_uf', `sal_ddd` = '$sal_ddd', `sal_tel` = '$sal_tel', `sal_salary` = $sal_salary, `sal_commission` = $sal_commission WHERE sal_idSalesman = $sal_idSalesman");
+        public function editSalesmanQuery($connection, $sal_cpf, $sal_name, $sal_address, $sal_city, $sal_cep, $sal_uf, $sal_ddd, $sal_tel, $sal_salary, $sal_commission) {
+            $editQuery = mysqli_query($connection, "UPDATE tbl_salesman SET `sal_cpf` = '$sal_cpf', `sal_name` = '$sal_name', `sal_address` = '$sal_address', `sal_city` = '$sal_city', `sal_cep` = '$sal_cep', `sal_uf` = '$sal_uf', `sal_ddd` = '$sal_ddd', `sal_tel` = '$sal_tel', `sal_salary` = $sal_salary, `sal_commission` = $sal_commission WHERE `sal_cpf` = '$sal_cpf'");
 
             if($editQuery) echo("<br>Query has been up-to-date successfully.");
 			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
         }
 
-        public function deleteSalesmanQuery($connection, $sal_idSalesman) {
-            $deleteQuery = mysqli_query($connection, "DELETE FROM `tbl_salesman` WHERE sal_idSalesman = $sal_idSalesman");
-
-            if($deleteQuery) echo("<br>Query has been deleted successfully.");
-			else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));
-        }
-
         public function get_idSalesman(){
             return $this->idSalesman;
+        }
+
+        public function set_idSalesman($sal_idSalesman){
+            $this->sal_idSalesman = $sal_idSalesman;
         }
 
         public function get_cpf(){

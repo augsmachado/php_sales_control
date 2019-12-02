@@ -49,7 +49,7 @@
         }
 
         public function editClientQuery($connection, $cli_cpf, $cli_name, $cli_address, $cli_city, $cli_cep, $cli_uf, $cli_ddd, $cli_tel, $cli_creditLimit, $cli_availableLimit) {
-            $editQuery = mysqli_query($connection, "UPDATE tbl_client SET `cli_cpf` = '$cli_cpf', `cli_name` = '$cli_name', `cli_address` = '$cli_address', `cli_city` = '$cli_city', `cli_cep` = '$cli_cep', `cli_uf` = '$cli_uf', `cli_ddd` = '$cli_ddd', `cli_tel` = '$cli_tel', `cli_creditLimit` = $cli_creditLimit, `cli_availableLimit` = $cli_availableLimit WHERE cli_cpf = $cli_cpf");
+            $editQuery = mysqli_query($connection, "UPDATE tbl_client SET `cli_cpf` = '$cli_cpf', `cli_name` = '$cli_name', `cli_address` = '$cli_address', `cli_city` = '$cli_city', `cli_cep` = '$cli_cep', `cli_uf` = '$cli_uf', `cli_ddd` = '$cli_ddd', `cli_tel` = '$cli_tel', `cli_creditLimit` = $cli_creditLimit, `cli_availableLimit` = $cli_availableLimit WHERE `cli_cpf` = '$cli_cpf'");
 
             if($editQuery) echo("<br>Query has been up-to-date successfully.");
             else echo("<br>Error ". mysqli_errno($connection) . ": " . mysqli_error($connection));

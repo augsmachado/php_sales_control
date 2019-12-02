@@ -30,6 +30,9 @@
                                     <a class="nav-link" href="customer.php">Customer</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="seller.php">Seller</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="product.php">Product</a>
                                 </li>
                                 <li class="nav-item">
