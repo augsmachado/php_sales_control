@@ -14,9 +14,8 @@
                         <input class="form-control mr-sm-2" id="sellerCpfInput" name="sellerCpfInput" type="search" placeholder="CPF seller" aria-label="Search">
                         <button class="btn btn-outline-sucess btn-primary my-2 my-sm-0" id="buttonCustomerSearch" name="buttonCustomer" value="search" type="submit">Search</button>
                     </div>
-                </form>
-                <form class="form-inline my-2 my-lg-2">
-                    <!-- Todos eles herdam o CPF pesquisado paara realizar uma acao -->
+                    
+                    <!-- Everyone inherits the searched CPF to perform an action -->
                     <div class="form-group col-sm-1">
                         <button class="btn btn-primary " type="button" onclick="javascript:window.location.href='sellerRegister.php'">New</button>
                     </div>
