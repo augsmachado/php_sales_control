@@ -14,13 +14,12 @@
                         <input class="form-control mr-sm-2" id="productCodeRequest" name="productCodeRequest" type="search" placeholder="Product Code" aria-label="Search">
                         <button class="btn btn-outline-sucess btn-primary my-2 my-sm-0 " type="submit">Search</button>
                     </div>
-                </form>
-                <form class="form-inline my-2 my-lg-2">
-                    <!-- Todos eles herdam o CPF pesquisado para realizar uma acao -->
-                    <div class="form-group col-sm-1">
+
+                    <!-- Everyone inherits the searched CPF to perform an action -->
+                    <div class="form-group col-sm-2">
                         <button class="btn btn-primary " type="button" onclick="javascript:window.location.href='productRegister.php'">New</button>
                     </div>
-                    <div class="form-group col-sm-1">
+                    <div class="form-group col-sm-2">
                         <button class="btn btn-primary " type="button" onclick="javascript:window.location.href='productRegister.php'">Edit</button>
                     </div>
                 </form>
