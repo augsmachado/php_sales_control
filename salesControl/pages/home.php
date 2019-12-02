@@ -38,7 +38,7 @@
                         <div class="card" style="width: 40px height: 40px;">
                             <img src="https://cdn.pixabay.com/photo/2016/08/02/18/27/statistic-1564428_1280.png" class="card-img-top mx-auto" alt="Sales Control image">
                             <div class="card-body">
-                                <a href="index.php" class="btn btn-primary">Go Sales Control</a>
+                                <a href="seller.php" class="btn btn-primary">Go Sales Control</a>
                             </div>
                         </div>
                     </div>

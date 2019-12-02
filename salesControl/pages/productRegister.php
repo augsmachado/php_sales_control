@@ -7,7 +7,7 @@
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-            <!-- Content Register page -->
+            <!-- Content Product Register page -->
             <div class="container">
                 
                 <!-- Form to request's informations -->
@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group col-sm-6">
                             <button class="btn btn-success btn-lg" type="submit">Save</button>
-                            <button class="btn btn-danger btn-lg" type="reset" value="clear" onclick="javascript:window.location.href='customer.php'">Cancel</button>
+                            <button class="btn btn-danger btn-lg" type="reset" value="clear" onclick="javascript:window.location.href='product.php'">Cancel</button>
                         </div>
                     </fieldset>
                 </form>
