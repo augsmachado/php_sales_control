@@ -8,7 +8,6 @@
             
             $c = new Client();
 
-            $c->set_idClient($_POST["customerCodeRequest"]);
             $c->set_cpf($_POST["customerCpfInput"]);
             $c->set_name($_POST["customerNameInput"]);
             $c->set_address($_POST["customerAdressInput"]);
