@@ -17,13 +17,14 @@
                         
                         <div class="row">
                             <form class="form-inline">
-                                
+
+
                                 <!-- Data Customer -->
-                                <div class="form-group col-sm-4">
-                                    <input type="text" class="form-control" id="customerNameInput" name="customerNameInput" placeholder="Customer's full name">
-                                </div>
-                                <div class="form-group col-sm-4">
+                                <div class="form-group col-sm-3">
                                     <input type="text" class="form-control" id="customerCpfInput" name="customerCpfInput" placeholder="CPF: 123.123.123-12">
+                                </div>
+                                <div class="form-group col-sm-9">
+                                    <input type="text" class="form-control" id="customerNameInput" name="customerNameInput" placeholder="Customer's full name">
                                 </div>
 
                                 <!-- Data Customer about adress -->
@@ -91,8 +92,10 @@
                             </form>
                         </div>
                         <div class="form-group col-sm-6">
-                            <button class="btn btn-success btn-lg" type="submit">Save</button>
-                            <button class="btn btn-danger btn-lg" type="reset" value="clear" onclick="javascript:window.location.href='customer.php'">Cancel</button>
+                            <button class="btn btn-success btn-lg" id="buttonCustomerSave" name="buttonCustomer" value="save" type="submit">Save</button>
+                            <button class="btn btn-danger btn-lg" id="buttonCustomerCancel" name="buttonCustomer" value="cancel" type="reset" value="clear" onclick="javascript:window.location.href='customer.php'">Cancel</button>
+                            <button class="btn btn-success btn-lg" id="buttonCustomerSearch" name="buttonCustomer" value="search" type="submit">Search</button>
+                            <button class="btn btn-success btn-lg" id="buttonCustomerUpdate" name="buttonCustomer" value="update" type="submit">Update</button>
                         </div>
                     </fieldset>
                 </form>
